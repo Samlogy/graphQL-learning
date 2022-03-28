@@ -1,13 +1,12 @@
-const { products, reviews, categories } = require("../data")
-const { Product} = require('./Product')
-const {Query} = require('./Query')
-const {Category} = require('./Category')
+const { Product } = require("./Product");
+const { Query } = require("./Query");
+const { Category } = require("./Category");
 
 // what our funciton will return
 const resolvers = {
   Query,
   Category,
-  Product
+  Product,
 };
 
 module.exports = { resolvers };

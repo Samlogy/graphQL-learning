@@ -4,6 +4,8 @@ const { typeDefs } = require("./schema");
 const { resolvers } = require("./resolvers");
 const { products, reviews, categories } = require("./data");
 
+// categories --> category(id) --> products --> product(id) -> reviews -> reviews(id)
+
 const server = new ApolloServer({
   typeDefs,
   resolvers,

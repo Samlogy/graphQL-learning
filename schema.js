@@ -1,15 +1,15 @@
-const { ApolloServer, gql } = require("apollo-server");
+const { gql } = require("apollo-server");
 
 // schema (data type)
 const typeDefs = gql`
   type Query {
     hello: String
-    products: [Product!]!
+    products(filter: ProductsFilter): [Product!]
     product(id: ID!): Product
+    
+
     category(id: ID!): Category
     categories: [Category!]!
-    reviews: [Review!]!
-    # review(id: ID!): Review
   }
   type Product {
     id: ID!
@@ -20,20 +20,23 @@ const typeDefs = gql`
     image: String!
     onSale: Boolean!
     categoryId: String!
-    category: Category
+    reviews: [Review!]
+    review(id: ID!): Review!
   }
   type Category {
     id: ID!
     name: String!
-    products: [Product!]!
+    products: [Product!]
   }
-
   type Review {
     id: ID!
     date: String!
     title: String!
     comment: String!
     rating: Float!
+  }
+  input ProductsFilter {
+    onSale: Boolean
   }
 `;
 

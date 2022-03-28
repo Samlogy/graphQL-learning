@@ -7,17 +7,17 @@ const products = [
     price: 42.44,
     image: "img-1",
     onSale: false,
-    categoryId: "c2af9adc-d0b8-4d44-871f-cef66f86f7f6"
+    categoryId: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70"
   },
   {
-    id: "c2af9adc-d0b8-4d44-871f-cef66f86f7f6",
+    id: "c2af9adc-d0b8-4d44-871f-cef66f86f7f7",
     name: "Salad Bowl",
     description: "Round wooden bowl perfect for tossing and making salads",
     quantity: 33,
     price: 53.5,
     image: "img-2",
     onSale: false,
-    categoryId: "c2af9adc-d0b8-4d44-871f-cef66f86f7f6"
+    categoryId: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70"
   },
   {
     id: "2c931e7e-510f-49e5-aed6-d6b44087e5a1",
@@ -27,7 +27,7 @@ const products = [
     price: 1.33,
     image: "img-3",
     onSale: true,
-    categoryId: "c2af9adc-d0b8-4d44-871f-cef66f86f7f6"
+    categoryId: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70"
   },
   {
     id: "404daf2a-9b97-4b99-b9af-614d07f818d7",
@@ -37,7 +37,7 @@ const products = [
     price: 332,
     image: "img-4",
     onSale: false,
-    categoryId: "c2af9adc-d0b8-4d44-871f-cef66f86f7f6"
+    categoryId: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70"
   },
   {
     id: "6379c436-9fad-4b3f-a427-2d7241f5c1b1",
@@ -47,7 +47,7 @@ const products = [
     price: 23.11,
     image: "img-5",
     onSale: true,
-    categoryId: "c2af9adc-d0b8-4d44-871f-cef66f86f7f6"
+    categoryId: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70"
   },
   {
     id: "f01bcdec-6783-464e-8f9e-8416830f7569",
@@ -145,7 +145,7 @@ const reviews = [
     title: "best thing ever",
     comment: "really good bowl",
     rating: 5,
-    productId: "c2af9adc-d0b8-4d44-871f-cef66f86f7f6",
+    productId: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70",
   },
   {
     id: "f7ca2f8e-74ed-4323-9166-c8b606c2238e ",
@@ -153,7 +153,7 @@ const reviews = [
     title: "SUPER HAPPY",
     comment: "this is amazing, only 4 stars tho... :)",
     rating: 4,
-    productId: "c2af9adc-d0b8-4d44-871f-cef66f86f7f6",
+    productId: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70",
   },
   {
     id: "908dbc7f-7782-43ae-9775-63bbd87db575",
@@ -161,7 +161,7 @@ const reviews = [
     title: "life changing",
     comment: "writing mock data is so boring...",
     rating: 5,
-    productId: "c2af9adc-d0b8-4d44-871f-cef66f86f7f6",
+    productId: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70",
   },
   {
     id: "1852460f-b186-4a7a-a024-dccc0f72e052",
@@ -169,7 +169,7 @@ const reviews = [
     title: "This is coooooool!",
     comment: "I would totally recommend",
     rating: 5,
-    productId: "c2af9adc-d0b8-4d44-871f-cef66f86f7f6",
+    productId: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70",
   },
   {
     id: "d075bdc8-df4b-4389-82ba-cb63726639ec",
