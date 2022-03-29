@@ -1,40 +1,31 @@
 import { gql } from "@apollo/client";
 
 
-export const QUERY_ALL_USERS = gql`
-  query GetAllUsers {
-    users {
-      id
-      name
-      age
-      username
-      nationality
-    }
+export const GET_ALL_PRODUCTS = gql`
+  query Query {
+  products(filter: {onSale: true}) {
+    id
+    name
+    description
+    quantity
+    price
+    image
+    onSale
+    categoryId
   }
-`;
-
-export const QUERY_ALL_MOVIES = gql`
-  query GetAllMovies {
-    movies {
-      name
-    }
+}
+`
+export const GET_PRODUCT_BY_ID = gql`
+query Query($id: ID!) {
+  product(id: $id) {
+    name
+    description
+    quantity
+    price
+    image
+    onSale
+    categoryId
+    id
   }
-`;
-
-export const GET_MOVIE_BY_NAME = gql`
-  query Movie($name: String!) {
-    movie(name: $name) {
-      name
-      yearOfPublication
-    }
-  }
-`;
-
-export const CREATE_USER_MUTATION = gql`
-  mutation CreateUser($input: CreateUserInput!) {
-    createUser(input: $input) {
-      name
-      id
-    }
-  }
+}
 `;
