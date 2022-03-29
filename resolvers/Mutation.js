@@ -29,7 +29,7 @@ exports.Mutation = {
     const { id: categoryId } = args;
     const { categories, products } = context;
 
-    const newCategories = categories.filter((category) => category.id !== categoryId)
+    const newCategories = categories.filter((category) => category.id !== categoryId);
 
     const newProducts = products.map((product) => {
       if (product.categoryId === categoryId)
@@ -45,9 +45,41 @@ exports.Mutation = {
     const { id: productId } = args;
     const { products, reviews } = context;
 
-    const newProduct = products.filter((product) => product.id !== productId)
-    const newReviews = products.filter((review) => review.productId !== productId)
+    const newProducts = products.filter((product) => product.id !== productId);
+    const newReviews = products.filter((review) => review.productId !== productId);
 
     return true;
   },
+  updateCategory: (parent, args, context) => {
+    const { id: categoryId, input } = args;
+    const { categories } = context;
+
+    let updatedCategory = {};
+
+    const newCategories = categories.map((category) => {
+      if (category.id === categoryId) {
+        return updatedCategory = {
+            id: categoryId,
+            name: input.name,
+        }
+      }
+    });
+    return updatedCategory;
+  },
+  updateProduct: (parent, args, context) => {
+    const { id: productId, input } = args;
+    const { products } = context;
+
+    let updatedProduct = {};
+
+    const newProducts = products.map((product) => {
+      if (product.id === productId) {
+        return updatedProduct = {
+            id: productId,
+            ...input
+        }
+      }
+    });
+    return updatedProduct;
+  }
 };
