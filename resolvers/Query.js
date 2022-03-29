@@ -1,23 +1,24 @@
+const filterQuery = (filter, data) => {
+  let filteredProducts = data
+
+  if (filter) {
+    if (filter.onSale) {
+      filteredProducts = filteredProducts.filter((product) => product.onSale)
+    }
+  } else {
+    filteredProducts = context.products
+  }
+
+  return filteredProducts
+}
 
 exports.Query = {
   hello: () => {
     return "scalar type";
   },
   products: (parent, args, context) => {
-    let filteredProducts = context.products
-    const filter = args.filter
-
-    // console.log(filter)
-
-    if (filter && filter.onSale) {
-      filteredProducts = filteredProducts.filter(product => {
-        return product.onSale
-      })
-    } else if (filter && !filter.onSale) {
-      filteredProducts = filteredProducts.filter(product =>  !product.onSale)
-    } else if (filter) filteredProducts = context.products
-    
-    return filteredProducts
+    const { onSale, avgRating } = args.filter
+    return filterQuery(args.filter, context.products)
   },
   product: (parent, args, context) => {
     const { id: productId } = args;
