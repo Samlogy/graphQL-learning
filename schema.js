@@ -17,6 +17,7 @@ const typeDefs = gql`
     addProduct(input: AddProductInput!): Product!
     
     deleteCategory(id: ID!): Boolean!
+    deleteProduct(id: ID!): Boolean!
   }
 
   type Product {

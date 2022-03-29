@@ -41,4 +41,13 @@ exports.Mutation = {
     });
     return true;
   },
+  deleteProduct: (parent, args, context) => {
+    const { id: productId } = args;
+    const { products, reviews } = context;
+
+    const newProduct = products.filter((product) => product.id !== productId)
+    const newReviews = products.filter((review) => review.productId !== productId)
+
+    return true;
+  },
 };
