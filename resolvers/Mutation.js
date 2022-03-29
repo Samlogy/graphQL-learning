@@ -70,16 +70,12 @@ exports.Mutation = {
     const { id: productId, input } = args;
     const { products } = context;
 
-    let updatedProduct = {};
-
-    const newProducts = products.map((product) => {
-      if (product.id === productId) {
-        return updatedProduct = {
-            id: productId,
-            ...input
-        }
-      }
-    });
-    return updatedProduct;
+    const index = products.findIndex((product) => product.id === productId);
+    if (index === -1) return null;
+    products[index] = {
+      ...products[index],
+      ...input,
+    };
+    return products[index];
   }
 };
