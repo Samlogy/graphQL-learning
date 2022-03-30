@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client";
-import { CREATE_PRODUCT } from "./services";
+import { CREATE_PRODUCT } from "../services";
 
 export const CreateProduct = () => {
   const newProduct = {

@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { GET_PRODUCT_BY_ID } from "./services";
+import { GET_PRODUCT_BY_ID } from "../services";
 
 export const Product = () => {
   const id = "2c931e7e-510f-49e5-aed6-d6b44087e5a1";

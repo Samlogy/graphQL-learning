@@ -5,10 +5,12 @@ import { EditProdct } from "./components/EditProdct";
 import { Product } from "./components/Product";
 import { Products } from "./components/Products";
 
+const graphql_uri = "http://localhost:4000/graphql"
+
 function App() {
   const client = new ApolloClient({
     cache: new InMemoryCache(),
-    uri: "http://localhost:4000/graphql",
+    uri: graphql_uri,
   });
 
   return (

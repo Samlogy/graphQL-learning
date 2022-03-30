@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client";
-import { EDIT_PRODUCT } from "./services";
+import { EDIT_PRODUCT } from "../services";
 
 export const EditProdct = () => {
   const productId = "53a0724c-a416-4cac-ae45-bfaedce1f147";
