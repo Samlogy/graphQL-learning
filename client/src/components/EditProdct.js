@@ -25,7 +25,7 @@ export const EditProdct = () => {
   if (error)
     return <p>An error occurred</p>;
 
-  // console.log({ data, loading, error });
+  console.log({ data, loading, error });
   return (
     <div style={{ padding: ".5rem", margin: ".5rem", border: "1px solid", borderRadius: "5px", maxWidth: "fit-content" }}>
       <form>here</form>

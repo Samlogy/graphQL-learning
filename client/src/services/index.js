@@ -39,7 +39,6 @@ export const CREATE_PRODUCT = gql`
     }
   }
 `;
-
 export const EDIT_PRODUCT = gql`
   mutation Mutation($updateProductId: ID!, $input: UpdateProductInput!) {
     updateProduct(id: $updateProductId, input: $input) {
@@ -54,7 +53,6 @@ export const EDIT_PRODUCT = gql`
     }
   }
 `;
-
 export const DELETE_PRODUCT = gql`
   mutation Mutation($deleteProductId: ID!) {
     deleteProduct(id: $deleteProductId)
