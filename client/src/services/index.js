@@ -58,3 +58,14 @@ export const DELETE_PRODUCT = gql`
     deleteProduct(id: $deleteProductId)
   }
 `;
+
+export const SINGLE_UPLOAD = gql`
+  mutation($file: Upload!) {
+    singleUpload(file: $file) {
+      # filename
+      # mimetype
+      # encoding
+      url
+    }
+  }
+`;

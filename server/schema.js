@@ -11,6 +11,13 @@ const typeDefs = gql`
     category(id: ID!): Category
     categories: [Category!]!
   }
+  scalar Upload
+  type File {
+    # filename: String!
+    # mimetype: String!
+    # encoding: String!
+    url: String!
+  }
 
   type Mutation {
     addCategory(input: AddCategoryInput!): Category!
@@ -21,6 +28,8 @@ const typeDefs = gql`
 
     updateCategory(id: ID!, input: UpdateCategoryInput!): Category
     updateProduct(id: ID!, input: UpdateProductInput!): Product
+
+    singleUpload(file: Upload!): File!
   }
 
   type Product {
@@ -77,4 +86,47 @@ const typeDefs = gql`
   }
 `;
 
-module.exports = { typeDefs };
+// const typeDefs2 = gql`
+//   type Query {
+//     products: [Product!]
+//   }
+
+//   type Mutation {
+//     addProduct(input: ProductInput!): Product!
+//     updateProduct(id: ID!, input: ProductInput!): Product!
+//     deleteProduct(id: ID!): Boolean!
+//     disableProduct(id: ID!): Boolean!
+//   }
+
+//   type Product {
+//     id: ID!
+//     name: String!
+//     description: String!
+//     quantity: Int!
+//     price: Float!
+//     image: String!
+//     discount: Float
+//     rate: Float!
+//     createdAt: String!
+//     editedAt: String 
+//     userId: String!
+//     categoryId: String!
+//   }
+
+//   input ProductInput {
+//     name: String!
+//     description: String!
+//     quantity: Int!
+//     price: Float!
+//     image: String!
+//     discount: Float
+//     rate: Float!
+//     reviews: Int!
+//     createdAt: String!
+//     editedAt: String 
+//     userId: String!
+//     categoryId: String!
+//   }
+// `;
+
+module.exports = {typeDefs};

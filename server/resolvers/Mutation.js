@@ -1,4 +1,17 @@
 const { v4: uuid } = require("uuid");
+const fs = require('fs');
+const path =require('path')
+
+function generateRandomName(length) {
+  var result           = '';
+  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var charactersLength = characters.length;
+  for ( var i = 0; i < length; i++ ) {
+    result += characters.charAt(Math.floor(Math.random() * 
+charactersLength));
+ }
+ return result;
+}
 
 exports.Mutation = {
   addCategory: (parent, args, context) => {
@@ -77,5 +90,18 @@ exports.Mutation = {
       ...input,
     };
     return products[index];
+  },
+  singleUpload: async (parent, {file}, context) => {
+    const { createReadStream, filename, mimetype, encoding } = await file;
+ 
+    const {ext} = path.parse(filename)
+    const new_filename = generateRandomName(12)+ext
+
+    const stream = createReadStream();
+    const pathName = path.join(__dirname, `../uploads/${new_filename}`)
+    await stream.pipe(fs.createWriteStream(pathName))
+   
+
+      return { url: `http://localhost:4000/uploads/${new_filename}` };
   }
 };
