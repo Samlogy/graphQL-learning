@@ -13,9 +13,9 @@ const typeDefs = gql`
   }
   scalar Upload
   type File {
-    # filename: String!
-    # mimetype: String!
-    # encoding: String!
+    filename: String!
+    mimetype: String!
+    encoding: String!
     url: String!
   }
 
@@ -30,6 +30,7 @@ const typeDefs = gql`
     updateProduct(id: ID!, input: UpdateProductInput!): Product
 
     singleUpload(file: Upload!): File!
+    multipleUpload(file: [Upload!]!): [File!]!
   }
 
   type Product {

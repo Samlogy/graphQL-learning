@@ -12,6 +12,15 @@ charactersLength));
  }
  return result;
 }
+function convertArrayToObject(array, key) {
+  const initialValue = {};
+  return array.reduce((obj, item) => {
+    return {
+      ...obj,
+      [item[key]]: item,
+    };
+  }, initialValue);
+}
 
 exports.Mutation = {
   addCategory: (parent, args, context) => {
@@ -91,17 +100,37 @@ exports.Mutation = {
     };
     return products[index];
   },
-  singleUpload: async (parent, {file}, context) => {
+  singleUpload: async (_, {file}) => {
     const { createReadStream, filename, mimetype, encoding } = await file;
  
     const {ext} = path.parse(filename)
-    const new_filename = generateRandomName(12)+ext
+    const new_filename = generateRandomName(12) + ext
 
     const stream = createReadStream();
     const pathName = path.join(__dirname, `../uploads/${new_filename}`)
     await stream.pipe(fs.createWriteStream(pathName))
    
 
-      return { url: `http://localhost:4000/uploads/${new_filename}` };
-  }
+    return { url: `http://localhost:4000/uploads/${new_filename}`, mimetype, encoding, filename };
+  },
+  multipleUpload: async (_, {file}) => {
+    const baseUrl = 'http://localhost:4000/uploads/';
+
+    const arrObjFiles = file.map(async (item) =>
+     {
+       let fileProps = await item;
+       const { createReadStream, filename, mimetype, encoding } = fileProps;
+        const stream = createReadStream();
+
+        const {ext} = path.parse(filename)
+        const new_filename = generateRandomName(12) + ext
+
+        const pathName = path.join(__dirname, `../uploads/${new_filename}`);
+        await stream.pipe(fs.createWriteStream(pathName));
+
+        return { url: baseUrl + new_filename, filename: new_filename, mimetype, encoding }
+    })
+
+    return await Promise.all(arrObjFiles)
+  },
 };

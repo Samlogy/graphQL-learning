@@ -62,9 +62,19 @@ export const DELETE_PRODUCT = gql`
 export const SINGLE_UPLOAD = gql`
   mutation($file: Upload!) {
     singleUpload(file: $file) {
-      # filename
-      # mimetype
-      # encoding
+      filename
+      mimetype
+      encoding
+      url
+    }
+  }
+`;
+export const MULTIPLE_UPLOAD = gql`
+  mutation($file: [Upload!]!) {
+    multipleUpload(file: $file) {
+      filename
+      mimetype
+      encoding
       url
     }
   }

@@ -22,7 +22,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <div className="App">
-        <h2> Products </h2>
+        {/* <h2> Products </h2>
         <Products />
 
         <h2> Product </h2>
@@ -35,7 +35,7 @@ function App() {
         <EditProdct />
 
         <h2> Delete Product </h2>
-        <DeleteProduct />
+        <DeleteProduct /> */}
 
         <h2> Upload Product </h2>
         <UploadFile />
