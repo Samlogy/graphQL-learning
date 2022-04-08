@@ -31,8 +31,6 @@ const UploadSingle = () => {
   //   uploadSingleFile({ variables: { file } })
   // }
 
-  console.log('loading: ', loading)
-
   if (loading)
     return <div>Loading...</div>;
 

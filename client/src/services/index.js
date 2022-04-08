@@ -79,3 +79,20 @@ export const MULTIPLE_UPLOAD = gql`
     }
   }
 `;
+
+export const PAGINATION_QUERY = gql`
+# Feed($offset: Int, $limit: Int)
+  query Characters($page: Int){
+    characters(page: $page) {
+      info {
+        count
+        pages
+        next
+        prev
+      }
+      results {
+        name
+      }
+    }
+  }
+`;

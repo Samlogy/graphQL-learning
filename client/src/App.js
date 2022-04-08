@@ -7,15 +7,17 @@ import { EditProdct } from "./components/EditProdct";
 import { Product } from "./components/Product";
 import { Products } from "./components/Products";
 import { UploadFile } from "./components/UploadFile";
+import { Pagination } from "./components/Pagination";
 
 const graphql_uri = "http://localhost:4000/graphql"
+const pagination_uri = "https://rickandmortyapi.com/graphql"
 
 function App() {
   const client = new ApolloClient({
     cache: new InMemoryCache(),
     // uri: graphql_uri,
     link: createUploadLink({
-      uri: graphql_uri,
+      uri: pagination_uri,
     }),
   });
 
@@ -37,8 +39,11 @@ function App() {
         <h2> Delete Product </h2>
         <DeleteProduct /> */}
 
-        <h2> Upload Product </h2>
-        <UploadFile />
+        {/* <h2> Upload </h2>
+        <UploadFile /> */}
+
+        <h2> Pagination </h2>
+        <Pagination />
       </div>
     </ApolloProvider>
   );
