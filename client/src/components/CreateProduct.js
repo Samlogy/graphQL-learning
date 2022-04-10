@@ -12,7 +12,7 @@ export const CreateProduct = () => {
     categoryId: "c01b1ff4-f894-4ef2-b27a-22aacc2fca70"
   };
 
-  const [create, { data, loading, error }] = useMutation(CREATE_PRODUCT, {
+  const [create, { data, loading, error, reset }] = useMutation(CREATE_PRODUCT, {
     variables: {
       input: newProduct
     }
@@ -21,7 +21,7 @@ export const CreateProduct = () => {
   if (loading)
     return <p> Loading... </p>;
   if (error)
-    return <p>An error occurred</p>;
+    return <p>An error occurred {error.message} </p>;
 
   console.log({ data, loading, error });
 
@@ -29,6 +29,7 @@ export const CreateProduct = () => {
     <div style={{ padding: ".5rem", margin: ".5rem", border: "1px solid", borderRadius: "5px", maxWidth: "fit-content" }}>
       <form>here</form>
       <button onClick={() => create()}> Create </button>
+      <button onClick={() => reset()}> Reset </button>
     </div>
   );
 };
