@@ -16,7 +16,7 @@ export const Pagination = () => {
   // if (error)
   //   return <div>{JSON.stringify(error, null, 2)}</div>;
 
-    console.log(data.characters.info)
+    // console.log(data.characters.info)
     {/* fetchMore({ variables: { offset: data.characters.info.next } }) */}
 
   return (
