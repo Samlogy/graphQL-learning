@@ -49,15 +49,16 @@ function App() {
         <h2> Delete Product </h2>
         <DeleteProduct />
 
+        <h2> Edit Product </h2>
+        <EditProdct />
+
         {/* 
         <h2> Product </h2>
         <Product />
 
         
 
-        <h2> Edit Product </h2>
-        <EditProdct />
-
+       
         */}
 
         {/* <h2> Upload </h2>

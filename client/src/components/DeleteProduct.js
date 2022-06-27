@@ -1,15 +1,16 @@
 import { useMutation } from "@apollo/client";
+import { useState } from "react";
 
 import { DELETE_PRODUCT, GET_ALL_PRODUCTS } from "../services";
 
 export const DeleteProduct = () => {
   const productId = "53a0724c-a416-4cac-ae45-bfaedce1f147";
+  const [text, setText] = useState("");
 
   const [remove, { data, loading, error }] = useMutation(DELETE_PRODUCT, {
     variables: {
-      deleteProductId: productId,
+      deleteProductId: text || productId,
     },
-    onCompleted: () => console.log("some action when mutation completed"),
     // refetchQueries: [{ query: GET_ALL_PRODUCTS }], // recall api to see delete changes on products
     update(cache, { data: { remove } }) {
       const { products } = cache.readQuery({ query: GET_ALL_PRODUCTS });
@@ -20,6 +21,7 @@ export const DeleteProduct = () => {
         },
       });
     },
+    onCompleted: () => console.log("some action when mutation completed"),
   });
 
   if (loading) return <p> Loading... </p>;
@@ -36,6 +38,11 @@ export const DeleteProduct = () => {
       }}
     >
       <form>here</form>
+      <input
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
       <button onClick={() => remove()}> Delete </button>
     </div>
   );

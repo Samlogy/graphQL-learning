@@ -1,5 +1,5 @@
 import { useMutation } from "@apollo/client";
-import { CREATE_PRODUCT } from "../services";
+import { CREATE_PRODUCT, GET_ALL_PRODUCTS } from "../services";
 
 export const CreateProduct = () => {
   const newProduct = {
@@ -17,6 +17,13 @@ export const CreateProduct = () => {
     {
       variables: {
         input: newProduct,
+      },
+      update(cache, { data: { create } }) {
+        const { products } = cache.readQuery({ query: GET_ALL_PRODUCTS });
+        cache.writeQuery({
+          query: GET_ALL_PRODUCTS,
+          data: { products: [...products, create] },
+        });
       },
     }
   );
