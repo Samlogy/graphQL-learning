@@ -60,7 +60,7 @@ export const DELETE_PRODUCT = gql`
 `;
 
 export const SINGLE_UPLOAD = gql`
-  mutation($file: Upload!) {
+  mutation ($file: Upload!) {
     singleUpload(file: $file) {
       filename
       mimetype
@@ -70,7 +70,7 @@ export const SINGLE_UPLOAD = gql`
   }
 `;
 export const MULTIPLE_UPLOAD = gql`
-  mutation($file: [Upload!]!) {
+  mutation ($file: [Upload!]!) {
     multipleUpload(file: $file) {
       filename
       mimetype
@@ -81,7 +81,7 @@ export const MULTIPLE_UPLOAD = gql`
 `;
 
 export const PAGINATION_QUERY = gql`
-  query Characters($page: Int){
+  query Characters($page: Int) {
     characters(page: $page) {
       info {
         count
